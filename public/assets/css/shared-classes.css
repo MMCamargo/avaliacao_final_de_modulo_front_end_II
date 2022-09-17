@@ -1,0 +1,11 @@
+.row {
+    box-shadow: 0px 10px 13px -7px #000000, 5px 5px 15px 5px rgba(0, 0, 0, 0);
+}
+
+.link-text {
+    color: #4c79d3;
+}
+
+.link-text:hover {
+    cursor: pointer;
+}
