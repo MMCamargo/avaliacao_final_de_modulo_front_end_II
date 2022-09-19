@@ -3,8 +3,7 @@ header {
 }
 
 .logout {
-    position: fixed;
-    right: 5px;
+    font-size: 32px;
 }
 
 .logout:hover {
@@ -13,4 +12,12 @@ header {
 
 .table {
     box-shadow: -10px 0px 13px -7px #000000, 10px 0px 13px -7px #000000, 5px 5px 15px 5px rgba(0, 0, 0, 0);
+}
+
+#modal-close-btn {
+    background-color: none;
+}
+
+.modal-dialog {
+    box-shadow: 0px 10px 13px -7px #000000, 5px 5px 15px 5px rgba(0, 0, 0, 0);
 }
