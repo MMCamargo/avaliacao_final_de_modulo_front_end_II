@@ -26,9 +26,11 @@ function loadNotes(note: Notes): void {
 
     const noteTitle = document.createElement('td') as HTMLTableCellElement
     noteTitle.innerText = note.title
+    noteTitle.style.wordBreak = 'break-all'
 
     const noteDescription = document.createElement('td') as HTMLTableCellElement
     noteDescription.innerText = note.description
+    noteDescription.style.wordBreak = 'break-all'
 
     const editBtn = document.createElement('button') as HTMLButtonElement
     editBtn.addEventListener('click', () => editNotes(note))
@@ -79,7 +81,7 @@ function updateNotes(note: Notes): void {
     const editedNote = loggedUserData.notes[noteIndex]
     const editedNoteRow = document.getElementById(note.id) as HTMLTableRowElement
 
-    editedNote.title = titleInput.value!
+    editedNote.title = titleInput.value
     editedNote.description = descriptionInput.value
 
     loggedUserData.notes[noteIndex] = editedNote

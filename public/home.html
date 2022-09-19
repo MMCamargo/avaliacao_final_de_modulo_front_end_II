@@ -18,29 +18,30 @@
     </title>
 </head>
 
-<body>
-    <div class="container-fluid vh-100 bg-dark d-flex flex-column">
+<body class="bg-dark">
+    <div class="container-fluid vh-100 d-flex flex-column">
         <div class="row shadow-bottom">
             <div class="col">
-                <header class="d-flex align-items-center justify-content-between">
-                    <p class="text-light ms-2 mt-3 p-2 bg-primary rounded-5 fw-bold" id="username">
+                <header class="d-flex justify-content-between pt-3">
+                    <p class="text-light p-2 bg-primary rounded-5 fw-bold d-flex align-items-center" id="username">
                         ...
                     </p>
 
-                    <p class="material-symbols-outlined logout-btn text-primary me-2 mt-3" id="logout-btn">
+                    <p class="material-symbols-outlined logout-btn text-primary d-flex align-items-center"
+                        id="logout-btn">
                         logout
                     </p>
                 </header>
             </div>
         </div>
 
-        <div class="row col-md-10 align-self-center">
+        <div class="row col-12 col-md-10 align-self-center">
             <div class="col">
                 <main>
-                    <p class="h2 text-light mt-5 text-center">
+                    <p class="fs-2 fw-semibold text-light mt-5 mb-4 text-center">
                         Meus Recados
                         <button type="button"
-                            class="btn p-1 btn-primary d-inline-flex align-items-center rounded-circle"
+                            class="btn mb-2 p-1 btn-primary d-inline-flex align-items-center rounded-circle"
                             data-bs-toggle="modal" data-bs-target="#modal" id="add-notes-btn">
                             <span class="material-symbols-rounded">
                                 add
@@ -48,7 +49,7 @@
                         </button>
                     </p>
 
-                    <table class="table table-dark table-striped shadow-sides mt-3">
+                    <table class="table table-dark table-striped shadow-sides">
                         <thead>
                             <tr>
                                 <th scope="col">

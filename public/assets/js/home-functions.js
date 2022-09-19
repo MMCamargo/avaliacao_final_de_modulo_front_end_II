@@ -20,8 +20,10 @@ function loadNotes(note) {
     tableRow.setAttribute('id', note.id);
     const noteTitle = document.createElement('td');
     noteTitle.innerText = note.title;
+    noteTitle.style.wordBreak = 'break-all';
     const noteDescription = document.createElement('td');
     noteDescription.innerText = note.description;
+    noteDescription.style.wordBreak = 'break-all';
     const editBtn = document.createElement('button');
     editBtn.addEventListener('click', () => editNotes(note));
     editBtn.setAttribute('data-bs-toggle', 'modal');
