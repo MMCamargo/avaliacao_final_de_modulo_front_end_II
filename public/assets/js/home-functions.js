@@ -25,7 +25,7 @@ function loadNotes(note) {
     const editBtn = document.createElement('button');
     editBtn.addEventListener('click', () => editNotes(note));
     editBtn.setAttribute('data-bs-toggle', 'modal');
-    editBtn.setAttribute('data-bs-target', '#createNotes');
+    editBtn.setAttribute('data-bs-target', '#modal');
     editBtn.classList.add('btn');
     editBtn.classList.add('btn-primary');
     editBtn.innerText = 'Editar';
@@ -50,9 +50,9 @@ function editNotes(note) {
     modalTitle.innerText = 'Editar recado';
     titleInput.value = note.title;
     descriptionInput.value = note.description;
-    sendBtn.style.display = 'none';
-    sendEditBtn.style.display = 'block';
-    sendEditBtn.addEventListener('click', () => updateNotes(note));
+    modalAddBtn.style.display = 'none';
+    modalEditBtn.style.display = 'block';
+    modalEditBtn.addEventListener('click', () => updateNotes(note));
 }
 function updateNotes(note) {
     const noteIndex = loggedUserData.notes.findIndex((noteAux) => note.id === noteAux.id);

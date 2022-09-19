@@ -33,7 +33,7 @@ function loadNotes(note: Notes): void {
     const editBtn = document.createElement('button') as HTMLButtonElement
     editBtn.addEventListener('click', () => editNotes(note))
     editBtn.setAttribute('data-bs-toggle', 'modal')
-    editBtn.setAttribute('data-bs-target', '#createNotes')
+    editBtn.setAttribute('data-bs-target', '#modal')
     editBtn.classList.add('btn')
     editBtn.classList.add('btn-primary')
     editBtn.innerText = 'Editar'
@@ -66,11 +66,11 @@ function editNotes(note: Notes): void {
     titleInput.value = note.title
     descriptionInput.value = note.description
 
-    sendBtn.style.display = 'none'
+    modalAddBtn.style.display = 'none'
 
-    sendEditBtn.style.display = 'block'
+    modalEditBtn.style.display = 'block'
 
-    sendEditBtn.addEventListener('click', () => updateNotes(note))
+    modalEditBtn.addEventListener('click', () => updateNotes(note))
 }
 
 function updateNotes(note: Notes): void {

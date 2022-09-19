@@ -7,13 +7,13 @@ document.addEventListener('DOMContentLoaded', () => {
 })
 
 const username = document.getElementById('username') as HTMLParagraphElement
-const logoutBtn = document.querySelector('.logout') as HTMLParagraphElement
+const logoutBtn = document.getElementById('logout-btn') as HTMLParagraphElement
 const addNotesBtn = document.getElementById('add-notes-btn') as HTMLButtonElement
-const modalTitle = document.getElementById('createNotesLabel') as HTMLTitleElement
+const modalTitle = document.getElementById('modal-label') as HTMLTitleElement
 const titleInput = document.getElementById('modal-title-input') as HTMLInputElement
 const descriptionInput = document.getElementById('modal-description-input') as HTMLInputElement
-const sendBtn = document.getElementById('modal-send-btn') as HTMLButtonElement
-const sendEditBtn = document.getElementById('modal-edit-btn') as HTMLButtonElement
+const modalAddBtn = document.getElementById('modal-add-btn') as HTMLButtonElement
+const modalEditBtn = document.getElementById('modal-edit-btn') as HTMLButtonElement
 
 username.innerText = `${loggedUserData.name}`
 
@@ -29,8 +29,8 @@ addNotesBtn.addEventListener('click', () => {
     titleInput.value = ''
     descriptionInput.value = ''
 
-    sendBtn.style.display = 'block'
-    sendEditBtn.style.display = 'none'
+    modalAddBtn.style.display = 'block'
+    modalEditBtn.style.display = 'none'
 })
 
-sendBtn.addEventListener('click', () => addNotes(titleInput, descriptionInput))
+modalAddBtn.addEventListener('click', () => addNotes(titleInput, descriptionInput))
