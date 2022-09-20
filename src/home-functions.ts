@@ -72,14 +72,19 @@ function editNotes(note: Notes): void {
 
     modalEditBtn.style.display = 'block'
 
-    modalEditBtn.addEventListener('click', () => updateNotes(note))
+    modalEditBtn.addEventListener('click', () => {
+        updateNotes(note)
+    }, { once: true })
+
+    // modalCancelBtn.addEventListener('click', () => {
+    //     modalEditBtn.removeEventListener('click', updateNotes)
+    // })
 }
 
 function updateNotes(note: Notes): void {
     const noteIndex = loggedUserData.notes.findIndex((noteAux) => note.id === noteAux.id)
 
     const editedNote = loggedUserData.notes[noteIndex]
-    const editedNoteRow = document.getElementById(note.id) as HTMLTableRowElement
 
     editedNote.title = titleInput.value
     editedNote.description = descriptionInput.value
@@ -88,9 +93,14 @@ function updateNotes(note: Notes): void {
 
     updateLoggedUserData(loggedUserData)
 
-    loggedUserData.notes.forEach((note) => loadNotes(note))
+    const tableBodyOld = document.getElementById('table-body') as HTMLTableSectionElement
+    const tableBodyNew = document.createElement('tbody') as HTMLTableSectionElement
+    tableBodyNew.setAttribute('id', 'table-body')
 
-    editedNoteRow.remove()
+    table.removeChild(tableBodyOld)
+    table.appendChild(tableBodyNew)
+
+    loggedUserData.notes.forEach((noteAux) => loadNotes(noteAux))
 }
 
 function deleteNotes(id: string): void {

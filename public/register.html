@@ -7,6 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+    <link rel="stylesheet" href="./assets/css/register.css">
     <link rel="stylesheet" href="./assets/css/general-classes.css">
     <title>
         Página de Recados
@@ -19,6 +20,10 @@
             <div class="col p-4">
                 <p class="fs-2 fw-semibold text-center mt-2 text-light">
                     Cadastro
+                </p>
+
+                <p class="form-alert text-center fw-semibold" id="register-alert">
+                    ...
                 </p>
 
                 <form id="register-form">
@@ -35,6 +40,10 @@
                             E-mail
                         </label>
 
+                        <p class="small text-muted" id="email-info">
+                            @gmail, @yahoo, @outlook, @hotmail & .com ou .com.br
+                        </p>
+
                         <input type="email" class="form-control" id="register-email-input" aria-describedby="emailHelp">
                     </div>
 
@@ -42,6 +51,10 @@
                         <label for="register-password-input" class="form-label text-light fw-semibold">
                             Senha
                         </label>
+
+                        <p class="small text-muted" id="password-info">
+                            [a-z], [A-Z], [0-9] ou caracteres especiais.
+                        </p>
 
                         <input type="password" class="form-control" id="register-password-input">
                     </div>
@@ -74,6 +87,7 @@
         crossorigin="anonymous"></script>
     <script src="./assets/js/local-storage-functions.js"></script>
     <script src="./assets/js/users.js"></script>
+    <script src="./assets/js/alert.js"></script>
     <script src="./assets/js/register-functions.js"></script>
     <script src="./assets/js/register.js"></script>
 </body>

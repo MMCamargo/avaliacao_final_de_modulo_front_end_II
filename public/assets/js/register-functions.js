@@ -3,25 +3,29 @@ const emailRegEx = /^([a-z]|[A-Z]){1}([a-z]|[A-Z]|[0-9]|[_])+([@]){1}(([g][m][a]
 const passwordRegEx = /^([a-z]|[A-Z]|[0-9]|[\S]){8,}$/;
 function validateRegister(name, email, password, repassword) {
     if (!name.value || !email.value || !password.value || !repassword.value) {
-        alert('Campos vazios');
+        showAlertRegister('text-danger', 'Por favor, preencha todos os campos.');
         return false;
     }
     if (!email.value.match(emailRegEx)) {
-        alert('E-mail inválido');
+        showAlertRegister('text-danger', 'Por favor, digite um e-mail válido.');
         return false;
     }
     if (usersList.some((userEmail) => userEmail.email === email.value)) {
-        alert('E-mail existente!');
+        showAlertRegister('text-danger', 'Este endereço de e-mail já foi utilizado.');
+        registerForm.reset();
         return false;
     }
     if (!password.value.match(passwordRegEx)) {
-        alert('Senha inválida');
+        showAlertRegister('text-danger', 'Por favor, digite uma senha válida.');
+        registerForm.reset();
         return false;
     }
     if (password.value !== repassword.value) {
-        alert('Senhas não conferem');
+        showAlertRegister('text-danger', 'Senhas não conferem.');
+        registerForm.reset();
         return false;
     }
+    showAlertRegister('text-success', 'Cadastro efetuado com sucesso!');
     return true;
 }
 function submitRegister(name, email, password) {
@@ -33,9 +37,27 @@ function submitRegister(name, email, password) {
         password: password.value,
         notes: [],
     };
+    const loggedUser = {
+        id: newUser.id,
+        name: name.value,
+        email: email.value,
+        notes: []
+    };
     usersList.push(newUser);
     setItem('usersList', usersList);
+    setItem('loggedUser', loggedUser);
+    registerForm.reset();
     setTimeout(() => {
         location.href = 'login.html';
-    }, 750);
+    }, 2000);
+}
+function showAlertRegister(color, msg) {
+    registerAlert.style.display = 'block';
+    registerAlert.classList.add(color);
+    registerAlert.innerText = msg;
+    setTimeout(() => {
+        registerAlert.classList.remove(color);
+        registerAlert.innerText = '';
+        registerAlert.style.display = 'none';
+    }, 2000);
 }

@@ -7,11 +7,13 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 const username = document.getElementById('username');
 const logoutBtn = document.getElementById('logout-btn');
+const table = document.getElementById('table');
 const addNotesBtn = document.getElementById('add-notes-btn');
 const modalTitle = document.getElementById('modal-label');
 const titleInput = document.getElementById('modal-title-input');
 const descriptionInput = document.getElementById('modal-description-input');
 const modalAddBtn = document.getElementById('modal-add-btn');
+const modalCancelBtn = document.getElementById('modal-cancel-btn');
 const modalEditBtn = document.getElementById('modal-edit-btn');
 username.innerText = `${loggedUserData.name}`;
 logoutBtn.addEventListener('click', () => {

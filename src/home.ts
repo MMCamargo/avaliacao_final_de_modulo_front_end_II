@@ -8,11 +8,13 @@ document.addEventListener('DOMContentLoaded', () => {
 
 const username = document.getElementById('username') as HTMLParagraphElement
 const logoutBtn = document.getElementById('logout-btn') as HTMLParagraphElement
+const table = document.getElementById('table') as HTMLTableElement
 const addNotesBtn = document.getElementById('add-notes-btn') as HTMLButtonElement
 const modalTitle = document.getElementById('modal-label') as HTMLHeadingElement
 const titleInput = document.getElementById('modal-title-input') as HTMLInputElement
 const descriptionInput = document.getElementById('modal-description-input') as HTMLInputElement
 const modalAddBtn = document.getElementById('modal-add-btn') as HTMLButtonElement
+const modalCancelBtn = document.getElementById('modal-cancel-btn') as HTMLButtonElement
 const modalEditBtn = document.getElementById('modal-edit-btn') as HTMLButtonElement
 
 username.innerText = `${loggedUserData.name}`

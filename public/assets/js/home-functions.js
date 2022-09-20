@@ -54,18 +54,26 @@ function editNotes(note) {
     descriptionInput.value = note.description;
     modalAddBtn.style.display = 'none';
     modalEditBtn.style.display = 'block';
-    modalEditBtn.addEventListener('click', () => updateNotes(note));
+    modalEditBtn.addEventListener('click', () => {
+        updateNotes(note);
+    }, { once: true });
+    // modalCancelBtn.addEventListener('click', () => {
+    //     modalEditBtn.removeEventListener('click', updateNotes)
+    // })
 }
 function updateNotes(note) {
     const noteIndex = loggedUserData.notes.findIndex((noteAux) => note.id === noteAux.id);
     const editedNote = loggedUserData.notes[noteIndex];
-    const editedNoteRow = document.getElementById(note.id);
     editedNote.title = titleInput.value;
     editedNote.description = descriptionInput.value;
     loggedUserData.notes[noteIndex] = editedNote;
     updateLoggedUserData(loggedUserData);
-    loggedUserData.notes.forEach((note) => loadNotes(note));
-    editedNoteRow.remove();
+    const tableBodyOld = document.getElementById('table-body');
+    const tableBodyNew = document.createElement('tbody');
+    tableBodyNew.setAttribute('id', 'table-body');
+    table.removeChild(tableBodyOld);
+    table.appendChild(tableBodyNew);
+    loggedUserData.notes.forEach((noteAux) => loadNotes(noteAux));
 }
 function deleteNotes(id) {
     const noteRow = document.getElementById(id);

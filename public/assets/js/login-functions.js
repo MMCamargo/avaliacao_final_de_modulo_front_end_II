@@ -12,7 +12,7 @@ function submitLogin(email, password) {
         loginForm.reset();
         setTimeout(() => {
             location.href = 'home.html';
-        }, 1000);
+        }, 500);
     }
     else {
         loginForm.reset();
@@ -21,15 +21,25 @@ function submitLogin(email, password) {
 function validateLogin(email, password) {
     const user = usersList.find((user) => user.email === email.value && user.password === password.value);
     if (!email.value || !password.value) {
-        alert('Campos vazios');
+        showAlertLogin('text-danger', 'Por favor, preencha todos os campos.');
         return { confirm: false };
     }
     if (!user) {
-        alert('Usuário não encontrado');
+        showAlertLogin('text-danger', 'Usuário não encontrado.');
         return { confirm: false };
     }
     return {
         confirm: true,
         user: user
     };
+}
+function showAlertLogin(color, msg) {
+    loginAlert.style.display = 'block';
+    loginAlert.classList.add(color);
+    loginAlert.innerText = msg;
+    setTimeout(() => {
+        loginAlert.classList.remove(color);
+        loginAlert.innerText = '';
+        loginAlert.style.display = 'none';
+    }, 2000);
 }

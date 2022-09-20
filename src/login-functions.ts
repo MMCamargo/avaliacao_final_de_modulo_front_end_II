@@ -15,7 +15,7 @@ function submitLogin(email: HTMLInputElement, password: HTMLInputElement): void 
 
         setTimeout(() => {
             location.href = 'home.html'
-        }, 1000);
+        }, 500);
     } else {
         loginForm.reset()
     }
@@ -25,13 +25,13 @@ function validateLogin(email: HTMLInputElement, password: HTMLInputElement): { c
     const user: User | undefined = usersList.find((user) => user.email === email.value && user.password === password.value)
 
     if (!email.value || !password.value) {
-        alert('Campos vazios')
+        showAlertLogin('text-danger', 'Por favor, preencha todos os campos.')
 
         return { confirm: false }
     }
 
     if (!user) {
-        alert('Usuário não encontrado')
+        showAlertLogin('text-danger', 'Usuário não encontrado.')
 
         return { confirm: false }
     }
@@ -40,4 +40,18 @@ function validateLogin(email: HTMLInputElement, password: HTMLInputElement): { c
         confirm: true,
         user: user
     }
+}
+
+function showAlertLogin(color: string, msg: string): void {
+    loginAlert.style.display = 'block'
+
+    loginAlert.classList.add(color)
+    loginAlert.innerText = msg
+
+    setTimeout(() => {
+        loginAlert.classList.remove(color)
+        loginAlert.innerText = ''
+
+        loginAlert.style.display = 'none'
+    }, 2000);
 }
